@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter_btl/ice_home.dart';
+import 'package:flutter_btl/product_home.dart';
+import 'package:flutter_btl/setting.dart';
 import 'package:flutter_btl/static/staticColor.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -21,11 +21,11 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return const Center(child: Text("Notifications"));
       case 2:
-        return const IceCreamHomePage();
+        return const ProductHomePage();
       case 3:
-        return const Center(child: Text("Settings"));
-      case 4:
         return const Center(child: Text("Person"));
+      case 4:
+        return const SettingPage();
     }
     return Container();
   }
@@ -49,8 +49,8 @@ class _HomePageState extends State<HomePage> {
             Icon(Icons.favorite, color: backgroundColor),
             Icon(Icons.notifications, color: backgroundColor),
             Icon(Icons.home, color: backgroundColor),
-            Icon(Icons.settings, color: backgroundColor),
             Icon(Icons.person, color: backgroundColor),
+            Icon(Icons.settings, color: backgroundColor),
           ],
         ),
         body: getWidgets(_selectedIndex));
