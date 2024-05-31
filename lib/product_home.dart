@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_btl/model/product.dart';
+import 'package:flutter_btl/product_details.dart';
 // import 'package:flutter_btl/product_component/row_header.dart';
 import 'package:flutter_btl/static/staticColor.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -14,22 +16,24 @@ class _ProductHomePageState extends State<ProductHomePage> {
   //ListView Category
   List<Map<String, dynamic>> categoriesList = [
     {
-      "icon": Icons.cabin,
-      "label": "Cabin",
+      "icon": Icons.icecream,
+      "label": "Shoes",
+    },
+    {
+      "icon": Icons.cake,
+      "label": "Shirt",
+    },
+    {
+      "icon": Icons.forum_outlined,
+      "label": "T-Shirt",
     },
     {
       "icon": Icons.cabin,
-      "label": "Cabin",
-    },
-    {
-      "icon": Icons.cabin,
-      "label": "Cabin",
-    },
-    {
-      "icon": Icons.cabin,
-      "label": "Cabin",
+      "label": "Sweater",
     },
   ];
+
+  List<Product> products = ProductList;
 
   @override
   Widget build(BuildContext context) {
@@ -178,62 +182,73 @@ class _ProductHomePageState extends State<ProductHomePage> {
         margin: const EdgeInsets.only(left: 20),
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: 3,
+          itemCount: products.length,
           itemBuilder: (context, index) {
-            return Container(
-              width: 260,
-              height: 320,
-              margin: const EdgeInsets.only(right: 20),
-              padding: const EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: forthColor,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    height: 210,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("assets/converse_shoes.png"),
-                            fit: BoxFit.cover)),
-                  ),
-                  const Text(
-                    "Converse 1970s",
-                    style: TextStyle(
-                      color: firstColor,
-                      fontSize: 23,
-                      fontWeight: FontWeight.w600,
+            final product = products[index];
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => ProductDetails(product: product)));
+              },
+              child: Container(
+                width: 260,
+                height: 320,
+                margin: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: product.lightColor,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 210,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/${product.image}"),
+                              fit: BoxFit.cover)),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      RatingBar.builder(
-                        itemCount: 5,
-                        itemSize: 18,
-                        initialRating: 4.5,
-                        allowHalfRating: true,
-                        itemBuilder: (context, _) {
-                          return const Icon(
-                            Icons.star_rounded,
-                            color: firstColor,
-                          );
-                        },
-                        onRatingUpdate: (rating) {},
+                    Text(
+                      product.name,
+                      style: TextStyle(
+                        color: product.darkColor,
+                        fontSize: 23,
+                        fontWeight: FontWeight.w600,
                       ),
-                      const Text(
-                        "\$50.99",
-                        style: TextStyle(
-                          color: firstColor,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        RatingBar.builder(
+                          itemCount: 5,
+                          itemSize: 18,
+                          initialRating: product.rating,
+                          allowHalfRating: true,
+                          itemBuilder: (context, _) {
+                            return Icon(
+                              Icons.star_rounded,
+                              color: product.darkColor,
+                            );
+                          },
+                          onRatingUpdate: (rating) {
+                            setState(() {
+                              product.rating = rating;
+                            });
+                          },
                         ),
-                      )
-                    ],
-                  )
-                ],
+                        Text(
+                          "\$${product.price}",
+                          style: TextStyle(
+                            color: product.darkColor,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 18,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
               ),
             );
           },
