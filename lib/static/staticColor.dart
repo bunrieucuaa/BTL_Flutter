@@ -26,3 +26,11 @@ const Color iconDarkModeColor = Color.fromARGB(255, 125, 11, 129);
 //Help
 const Color bgHelpColor = Color.fromARGB(255, 162, 218, 134);
 const Color iconHelpColor = Color.fromARGB(255, 52, 150, 19);
+
+//STATIC PRODUCT IMAGE
+const Color lightColor = Color.fromARGB(255, 177, 151, 158);
+const Color darkColor = Color.fromARGB(255, 122, 196, 232);
+
+//BUTTON COLOR
+const Color buttonColor = Color.fromARGB(255, 96, 179, 211);
+const Color iconButtonColor = Color.fromARGB(255, 82, 71, 110);
