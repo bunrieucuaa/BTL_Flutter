@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "279280894260",
+    "project_id": "flutterbtl",
+    "storage_bucket": "flutterbtl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:279280894260:android:e9f8cc14a3ae466db32561",
+        "android_client_info": {
+          "package_name": "com.example.flutter_btl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDspmd_p8VWWwSL382voT0lw4c7G4eDfZQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

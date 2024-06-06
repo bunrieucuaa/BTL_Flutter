@@ -34,3 +34,12 @@ const Color darkColor = Color.fromARGB(255, 122, 196, 232);
 //BUTTON COLOR
 const Color buttonColor = Color.fromARGB(255, 96, 179, 211);
 const Color iconButtonColor = Color.fromARGB(255, 82, 71, 110);
+
+//CRUD FORM
+//Label
+const Color labelColor = Color.fromARGB(255, 74, 167, 226);
+
+
+//Toast 
+const Color sucessfullyColor = Color.fromARGB(255, 47, 226, 11);
+const Color failedColor = Color.fromARGB(255, 207, 38, 38);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter_btl/crud/crud_page.dart';
 import 'package:flutter_btl/product_home.dart';
 import 'package:flutter_btl/setting.dart';
 import 'package:flutter_btl/static/staticColor.dart';
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
       case 0:
         return const Center(child: Text("Favorites"));
       case 1:
-        return const Center(child: Text("Notifications"));
+        return const CrudHomePage();
       case 2:
         return const ProductHomePage();
       case 3:
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           },
           items: const [
             Icon(Icons.favorite, color: backgroundColor),
-            Icon(Icons.notifications, color: backgroundColor),
+            Icon(Icons.tab_outlined, color: backgroundColor),
             Icon(Icons.home, color: backgroundColor),
             Icon(Icons.person, color: backgroundColor),
             Icon(Icons.settings, color: backgroundColor),
