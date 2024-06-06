@@ -158,7 +158,7 @@ class _CreateProductState extends State<CreateProduct> {
                             gravity: ToastGravity.CENTER,
                             timeInSecForIosWeb: 1,
                             backgroundColor: sucessfullyColor,
-                            textColor: Colors.white,
+                            textColor: backgroundColor,
                             fontSize: 16.0);
                       });
                     },

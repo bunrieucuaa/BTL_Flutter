@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'flutterbtl',
     storageBucket: 'flutterbtl.appspot.com',
   );
+
 }

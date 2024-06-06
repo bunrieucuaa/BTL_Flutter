@@ -8,4 +8,20 @@ class DatabaseMethods {
         .doc(id)
         .set(productInfoMap);
   }
+
+  Future<Stream<QuerySnapshot>> getProductDetails() async {
+    return await FirebaseFirestore.instance.collection("Product").snapshots();
+  }
+
+  Future updateProductDetails(
+      String id, Map<String, dynamic> updateInfo) async {
+    return await FirebaseFirestore.instance
+        .collection("Product")
+        .doc(id)
+        .update(updateInfo);
+  }
+
+  Future deleteProduct(String id) async {
+    return await FirebaseFirestore.instance.collection("Product").doc(id);
+  }
 }
