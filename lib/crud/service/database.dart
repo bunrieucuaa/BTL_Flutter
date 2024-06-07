@@ -22,6 +22,9 @@ class DatabaseMethods {
   }
 
   Future deleteProduct(String id) async {
-    return await FirebaseFirestore.instance.collection("Product").doc(id);
+    return await FirebaseFirestore.instance
+        .collection("Product")
+        .doc(id)
+        .delete();
   }
 }

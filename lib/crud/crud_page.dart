@@ -41,12 +41,12 @@ class _CrudHomePageState extends State<CrudHomePage> {
                   itemBuilder: (context, index) {
                     DocumentSnapshot ds = snapshot.data.docs[index];
                     return Container(
-                      margin: EdgeInsets.only(bottom: 20),
+                      margin: const EdgeInsets.only(bottom: 20),
                       child: Material(
                         elevation: 5,
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
-                          padding: EdgeInsets.all(20),
+                          padding: const EdgeInsets.all(20),
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               color: backgroundColor,
@@ -57,26 +57,26 @@ class _CrudHomePageState extends State<CrudHomePage> {
                                 Row(
                                   children: [
                                     Text(
-                                      "Name : " + ds["Name"],
-                                      style: TextStyle(
+                                      "Name : ${ds["Name"]} ",
+                                      style: const TextStyle(
                                           color: nameColor,
                                           fontSize: 15,
                                           fontWeight: FontWeight.w800),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     GestureDetector(
                                       onTap: () {
-                                        EditProductDetail(ds["Id"]);
-                                        // namecontroller = ds["Name"];
-                                        // typecontroller = ds["Type"];
-                                        // pricecontroller = ds["Price"];
-                                        // descriptioncontroller =
-                                        //     ds["Description"];
+                                        editProductDetail(ds["Id"]);
+                                        namecontroller.text = ds["Name"];
+                                        typecontroller.text = ds["Type"];
+                                        pricecontroller.text = ds["Price"];
+                                        descriptioncontroller.text =
+                                            ds["Description"];
                                       },
-                                      child:
-                                          Icon(Icons.edit, color: editButton),
+                                      child: const Icon(Icons.edit,
+                                          color: editButton),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 5,
                                     ),
                                     GestureDetector(
@@ -96,27 +96,27 @@ class _CrudHomePageState extends State<CrudHomePage> {
                                                 fontSize: 16.0);
                                           });
                                         },
-                                        child: Icon(Icons.delete,
+                                        child: const Icon(Icons.delete,
                                             color: deleteButton))
                                   ],
                                 ),
                                 Text(
-                                  "Type : " + ds["Type"],
-                                  style: TextStyle(
+                                  "Type : ${ds["Type"]}",
+                                  style: const TextStyle(
                                       color: typeColor,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w800),
                                 ),
                                 Text(
-                                  "Price : " + ds["Price"],
-                                  style: TextStyle(
+                                  "Price :${ds["Price"]} ",
+                                  style: const TextStyle(
                                       color: priceColor,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w800),
                                 ),
                                 Text(
-                                  "Description : " + ds["Description"],
-                                  style: TextStyle(
+                                  "Description : ${ds["Description"]}",
+                                  style: const TextStyle(
                                       color: descriptionColor,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w800),
@@ -158,168 +158,170 @@ class _CrudHomePageState extends State<CrudHomePage> {
           ),
         ),
         body: Container(
-          margin: EdgeInsets.only(left: 20, right: 20, top: 30),
+          margin: const EdgeInsets.only(left: 20, right: 20, top: 30),
           child: Column(
             children: [Expanded(child: allProductDetails())],
           ),
         ));
   }
 
-  Future EditProductDetail(String id) => showDialog(
+  Future editProductDetail(String id) => showDialog(
       context: context,
       builder: (context) => AlertDialog(
-            content: Container(
-              child: SingleChildScrollView(
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.pop(context);
-                              },
-                              child: Icon(Icons.cancel)),
-                          SizedBox(
-                            width: 60,
-                          ),
-                          Text(
-                            "Edit Details",
-                            style: TextStyle(
-                              color: firstColor,
-                              fontSize: 20,
-                              fontFamily: "Poetsen One",
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Name",
-                        style: TextStyle(
-                            color: labelColor,
-                            fontSize: 20,
-                            fontFamily: "Poetsen One",
-                            fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.only(left: 12),
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: TextField(
-                          controller: namecontroller,
-                          decoration: InputDecoration(border: InputBorder.none),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Type",
-                        style: TextStyle(
-                            color: labelColor,
-                            fontSize: 20,
-                            fontFamily: "Poetsen One",
-                            fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 12),
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: TextField(
-                          controller: typecontroller,
-                          decoration: InputDecoration(border: InputBorder.none),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Price",
-                        style: TextStyle(
-                            color: labelColor,
-                            fontSize: 20,
-                            fontFamily: "Poetsen One",
-                            fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 12),
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: TextField(
-                          controller: pricecontroller,
-                          decoration: InputDecoration(border: InputBorder.none),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "Description",
-                        style: TextStyle(
-                            color: labelColor,
-                            fontSize: 20,
-                            fontFamily: "Poetsen One",
-                            fontWeight: FontWeight.w700),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 12),
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: TextField(
-                          controller: descriptioncontroller,
-                          decoration: InputDecoration(border: InputBorder.none),
-                        ),
-                      ),
-                      SizedBox(height: 30),
-                      Center(
-                        child: ElevatedButton(
-                          onPressed: () async {
-                            Map<String, dynamic> updateInfo = {
-                              "Id": id,
-                              "Name": namecontroller.text,
-                              "Type": typecontroller.text,
-                              "Price": pricecontroller.text,
-                              "Description": descriptioncontroller.text,
-                            };
-                            await DatabaseMethods()
-                                .updateProductDetails(id, updateInfo)
-                                .then((value) {
-                              Fluttertoast.showToast(
-                                  msg:
-                                      "Product details has been updated successfully",
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.CENTER,
-                                  timeInSecForIosWeb: 1,
-                                  backgroundColor: sucessfullyColor,
-                                  textColor: backgroundColor,
-                                  fontSize: 16.0);
+            content: SingleChildScrollView(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        GestureDetector(
+                            onTap: () {
                               Navigator.pop(context);
-                            });
-                          },
-                          child: Text('Update'),
+                            },
+                            child: const Icon(Icons.cancel)),
+                        const SizedBox(
+                          width: 60,
                         ),
-                      )
-                    ]),
-              ),
+                        const Text(
+                          "Edit Details",
+                          style: TextStyle(
+                            color: firstColor,
+                            fontSize: 20,
+                            fontFamily: "Poetsen One",
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      "Name",
+                      style: TextStyle(
+                          color: labelColor,
+                          fontSize: 20,
+                          fontFamily: "Poetsen One",
+                          fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 12),
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: TextField(
+                        controller: namecontroller,
+                        decoration:
+                            const InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      "Type",
+                      style: TextStyle(
+                          color: labelColor,
+                          fontSize: 20,
+                          fontFamily: "Poetsen One",
+                          fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 12),
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: TextField(
+                        controller: typecontroller,
+                        decoration:
+                            const InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      "Price",
+                      style: TextStyle(
+                          color: labelColor,
+                          fontSize: 20,
+                          fontFamily: "Poetsen One",
+                          fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 12),
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: TextField(
+                        controller: pricecontroller,
+                        decoration:
+                            const InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      "Description",
+                      style: TextStyle(
+                          color: labelColor,
+                          fontSize: 20,
+                          fontFamily: "Poetsen One",
+                          fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.only(left: 12),
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(10)),
+                      child: TextField(
+                        controller: descriptioncontroller,
+                        decoration:
+                            const InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () async {
+                          Map<String, dynamic> updateInfo = {
+                            "Id": id,
+                            "Name": namecontroller.text,
+                            "Type": typecontroller.text,
+                            "Price": pricecontroller.text,
+                            "Description": descriptioncontroller.text,
+                          };
+                          await DatabaseMethods()
+                              .updateProductDetails(id, updateInfo)
+                              .then((value) {
+                            Fluttertoast.showToast(
+                                msg:
+                                    "Product details has been updated successfully",
+                                toastLength: Toast.LENGTH_SHORT,
+                                gravity: ToastGravity.CENTER,
+                                timeInSecForIosWeb: 1,
+                                backgroundColor: sucessfullyColor,
+                                textColor: backgroundColor,
+                                fontSize: 16.0);
+                            Navigator.pop(context);
+                          });
+                        },
+                        child: const Text('Update'),
+                      ),
+                    )
+                  ]),
             ),
           ));
 }
