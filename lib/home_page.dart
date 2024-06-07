@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter_btl/account_home_page.dart';
 import 'package:flutter_btl/crud/crud_page.dart';
 import 'package:flutter_btl/product_home.dart';
 import 'package:flutter_btl/setting.dart';
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       case 2:
         return const ProductHomePage();
       case 3:
-        return const Center(child: Text("Person"));
+        return const AccountHomePage();
       case 4:
         return const SettingPage();
     }
