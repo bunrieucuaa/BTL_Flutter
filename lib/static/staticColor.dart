@@ -28,8 +28,8 @@ const Color bgHelpColor = Color.fromARGB(255, 162, 218, 134);
 const Color iconHelpColor = Color.fromARGB(255, 52, 150, 19);
 
 //STATIC PRODUCT IMAGE
-const Color lightColor = Color.fromARGB(255, 177, 151, 158);
-const Color darkColor = Color.fromARGB(255, 122, 196, 232);
+const Color lightColor = Color.fromARGB(255, 74, 167, 226);
+const Color darkColor = Color.fromARGB(255, 14, 89, 143);
 
 //BUTTON COLOR
 const Color buttonColor = Color.fromARGB(255, 96, 179, 211);
@@ -45,7 +45,12 @@ const Color typeColor = Color.fromARGB(255, 198, 83, 185);
 const Color priceColor = Color.fromARGB(255, 176, 220, 101);
 const Color descriptionColor = Color.fromARGB(255, 206, 197, 131);
 
-
-//Toast 
+//Toast
 const Color sucessfullyColor = Color.fromARGB(255, 47, 226, 11);
 const Color failedColor = Color.fromARGB(255, 207, 38, 38);
+
+//ACCOUNT
+const Color whenMale = Color.fromARGB(255, 162, 65, 236);
+const Color whenFemale = Color.fromARGB(255, 160, 162, 160);
+const Color whenMaleText = Color.fromARGB(255, 255, 255, 255);
+const Color whenFemaleText = Color.fromARGB(255, 0, 0, 0);

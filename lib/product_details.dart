@@ -154,7 +154,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     letterSpacing: 0.8),
               ),
               Text(
-                "Shoes",
+                widget.product.type,
                 style: TextStyle(
                     color: widget.product.darkColor.withOpacity(0.5),
                     fontSize: 24,
@@ -195,7 +195,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ],
               ),
               Text(
-                "Converse 1970s là 1 trong những dòng sản phẩm bán chạy nhất của Converse. Phần đế màu trắng ngà vintage được phủ 1 lớp bóng bên ngoài là điểm nhấn riêng cho dòng 1970s, dễ vệ sinh hơn.",
+                widget.product.description,
                 style: TextStyle(
                   color: widget.product.lightColor,
                   fontWeight: FontWeight.w700,

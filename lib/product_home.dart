@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_btl/model/product.dart';
+import 'package:flutter_btl/product_component/row_header.dart';
+import 'package:flutter_btl/product_component/search_container.dart';
 import 'package:flutter_btl/product_details.dart';
-// import 'package:flutter_btl/product_component/row_header.dart';
 import 'package:flutter_btl/static/staticColor.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -66,61 +67,6 @@ class _ProductHomePageState extends State<ProductHomePage> {
       ),
     );
   }
-
-  //Row Header
-  Widget headerAppBar() => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-                color: forthColor, borderRadius: BorderRadius.circular(10)),
-            child: const Icon(Icons.menu, color: firstColor),
-          ),
-          const Text(
-            "Annee's Shop",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: firstColor,
-              fontSize: 27,
-              fontFamily: "Poetsen One",
-            ),
-          ),
-          Container(
-            height: 40,
-            width: 40,
-            decoration: BoxDecoration(
-                color: forthColor, borderRadius: BorderRadius.circular(10)),
-            child: const Icon(Icons.shopping_cart_outlined, color: firstColor),
-          ),
-        ],
-      );
-
-  //Row search bar
-  Widget searchContainer() => Padding(
-        padding: const EdgeInsets.only(top: 20, bottom: 20),
-        child: Container(
-            height: 44,
-            decoration: BoxDecoration(
-                color: forthColor, borderRadius: BorderRadius.circular(15)),
-            child: const TextField(
-              cursorColor: firstColor,
-              style: TextStyle(
-                color: firstColor,
-              ),
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: firstColor,
-                ),
-                hintText: "Search Your Product",
-                hintStyle: TextStyle(
-                    color: firstColor, fontFamily: "Poetsen One", fontSize: 15),
-              ),
-            )),
-      );
 
   //Category List View
   Widget categoryListView() => Container(
